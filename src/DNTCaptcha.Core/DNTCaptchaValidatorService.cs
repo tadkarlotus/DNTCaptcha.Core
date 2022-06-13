@@ -58,7 +58,10 @@ namespace DNTCaptcha.Core
                 return true;
             }
 
-            var (captchaText, inputText, cookieToken) = getFormValues(httpContext);
+            var (captchaText, inputText, cookieToken, enable) = getFormValues(httpContext);
+
+            if (enable == null || enable.Equals("false", StringComparison.Ordinal))
+                return true;
 
             if (string.IsNullOrEmpty(captchaText))
             {
@@ -128,11 +131,12 @@ namespace DNTCaptcha.Core
             return areEqual;
         }
 
-        private (string captchaText, string inputText, string cookieToken) getFormValues(HttpContext httpContext)
+        private (string captchaText, string inputText, string cookieToken, string enable) getFormValues(HttpContext httpContext)
         {
             var captchaHiddenInputName = _captchaOptions.CaptchaComponent.CaptchaHiddenInputName;
             var captchaInputName = _captchaOptions.CaptchaComponent.CaptchaInputName;
             var captchaHiddenTokenName = _captchaOptions.CaptchaComponent.CaptchaHiddenTokenName;
+            var captchaHiddenIsEnable = _captchaOptions.CaptchaComponent.CaptchaIsEnable;
 
             if (!httpContext.Request.HasFormContentType)
             {
@@ -145,8 +149,11 @@ namespace DNTCaptcha.Core
             var captchaTextForm = (string)form[captchaHiddenInputName];
             var inputTextForm = (string)form[captchaInputName];
             var cookieTokenForm = (string)form[captchaHiddenTokenName];
-            return (captchaTextForm, inputTextForm, cookieTokenForm);
+            var captchaIsEnable = (string)form[captchaHiddenIsEnable];
+
+            return (captchaTextForm, inputTextForm, cookieTokenForm, captchaIsEnable);
         }
+
 
         private static bool shouldValidate(HttpContext context)
         {

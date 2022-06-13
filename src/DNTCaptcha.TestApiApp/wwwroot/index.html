@@ -29,35 +29,30 @@
         </div>
 
         <div class="dntCaptcha mb-3">
-          <img
-            alt="captcha"
-            id="dntCaptchaImg"
-            name="dntCaptchaImg"
-            style="margin-bottom: 4px"
-          />
-          <a
-            class="bi-arrow-counterclockwise btn-lg"
-            style="cursor: pointer"
-            id="dntCaptchaRefreshButton"
-            name="dntCaptchaRefreshButton"
-            onclick="doRefreshCaptcha()"
-          ></a>
-          <input id="DNTCaptchaText" name="DNTCaptchaText" type="hidden" />
-          <div class="input-group">
-            <span class="input-group-text">
-              <span class="bi-lock"></span>
-            </span>
-            <input
-              autocomplete="off"
-              class="form-control"
-              dir="ltr"
-              id="DNTCaptchaInputText"
-              name="DNTCaptchaInputText"
-              placeholder="Security code as a number"
-              type="text"
-            />
-          </div>
-          <input id="DNTCaptchaToken" name="DNTCaptchaToken" type="hidden" />
+            <img alt="captcha"
+                 id="dntCaptchaImg"
+                 name="dntCaptchaImg"
+                 style="margin-bottom: 4px" />
+            <a class="bi-arrow-counterclockwise btn-lg"
+               style="cursor: pointer"
+               id="dntCaptchaRefreshButton"
+               name="dntCaptchaRefreshButton"
+               onclick="doRefreshCaptcha()"></a>
+            <input id="DNTCaptchaText" name="DNTCaptchaText" type="hidden" />
+            <div class="input-group">
+                <span class="input-group-text">
+                    <span class="bi-lock"></span>
+                </span>
+                <input autocomplete="off"
+                       class="form-control"
+                       dir="ltr"
+                       id="DNTCaptchaInputText"
+                       name="DNTCaptchaInputText"
+                       placeholder="Security code as a number"
+                       type="text" />
+            </div>
+            <input id="DNTCaptchaToken" name="DNTCaptchaToken" type="hidden" />
+            <input id="DNTCaptchaIsEnable" value="true" name="DNTCaptchaIsEnable" type="hidden" />
         </div>
 
         <button id="submitLogin" class="btn btn-secondary" type="submit">

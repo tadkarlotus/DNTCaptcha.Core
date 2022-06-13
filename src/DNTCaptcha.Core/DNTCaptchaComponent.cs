@@ -22,5 +22,10 @@ namespace DNTCaptcha.Core
         /// Its default value is `DNTCaptchaInputText`.
         /// </summary>
         public string CaptchaInputName { get; set; } = "DNTCaptchaInputText";
+        /// <summary>
+        /// enable or disable captcha.
+        /// Its default value is fals.
+        /// </summary>
+        public string CaptchaIsEnable { get; set; } = "DNTCaptchaIsEnable";
     }
 }
